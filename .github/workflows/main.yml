@@ -24,6 +24,7 @@ jobs:
 
       - name: 运行签到脚本
         env:
+          CMCC_PHONE: ${{ secrets.CMCC_PHONE }}
           CMCC_APP_TOKEN: ${{ secrets.CMCC_CONFIG }}
           CMCC_CONFIG: ${{ secrets.CMCC_CONFIG }}
         run: |
