@@ -1,9 +1,9 @@
 name: 中国移动自动签到
 
 on:
-  workflow_dispatch: # 支持手动点击运行
+  workflow_dispatch:
   schedule:
-    - cron: '0 0 * * *' # 每天自动运行一次
+    - cron: '0 0 * * *'
 
 jobs:
   build:
@@ -24,6 +24,7 @@ jobs:
 
       - name: 运行签到脚本
         env:
+          CMCC_APP_TOKEN: ${{ secrets.CMCC_CONFIG }}
           CMCC_CONFIG: ${{ secrets.CMCC_CONFIG }}
         run: |
           python cmcc_sign.py
